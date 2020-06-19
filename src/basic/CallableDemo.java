@@ -4,6 +4,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 /**
+ * JDK 1.5 >
  * Thread 실행 흐름을 만들 때 Runnable이 아닌 Callable로 생성 할 수도 있다.
  * Runnable과 다른점은, run이 아닌 call이라는 메소드를 가지고 있다.
  * 또한 call 메소드를 통해, 예외처리가 가능하고, task 작업 후의 설정한 반환값을 반환할 수 있다.

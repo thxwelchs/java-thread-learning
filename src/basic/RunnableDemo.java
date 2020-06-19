@@ -47,7 +47,7 @@ class TestThread {
     public static void main(String[] args) throws InterruptedException {
 
         // CPU 개수 확인
-        System.out.println("az processors" + Runtime.getRuntime().availableProcessors());
+        System.out.println("az processors " + Runtime.getRuntime().availableProcessors());
 
         RunnableDemo R1 = new RunnableDemo( "Thread-1");
         R1.start();

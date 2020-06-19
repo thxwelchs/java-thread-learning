@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class VolatileDemo {
 
-    private volatile AtomicInteger counter = new AtomicInteger(0);
+    private AtomicInteger counter = new AtomicInteger(0);
 
     public int getCounter() {
         return counter.get();

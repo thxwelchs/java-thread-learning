@@ -1,14 +1,16 @@
 package concurrency;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class VolatileDemo {
 
-    private int counter = 0;
+    private AtomicInteger counter = new AtomicInteger(0);
 
     public int getCounter() {
-        return counter;
+        return counter.get();
     }
 
     public int increment() {
-        return counter++;
+        return counter.incrementAndGet();
     }
 }

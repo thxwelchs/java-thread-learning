@@ -9,6 +9,7 @@ public class AtomicIntegerTest {
     private static AtomicInteger counter = new AtomicInteger();
 
     public static int getNextUniqueIndex(){
+
         return counter.getAndIncrement();
     }
 

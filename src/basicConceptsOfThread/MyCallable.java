@@ -1,5 +1,7 @@
 package basicConceptsOfThread;
 
+import jdk.jshell.spi.ExecutionControlProvider;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,23 +28,31 @@ public class MyCallable implements Callable<String> {
          */
         ExecutorService numberOfCpuThreadExecutor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         Runnable runnable = new Runnable() {
+
             @Override
             public void run() {
-                ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) numberOfCpuThreadExecutor;
 
-                int poolSize = threadPoolExecutor.getPoolSize();
-                int corePoolSize = threadPoolExecutor.getCorePoolSize();
+                    ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) numberOfCpuThreadExecutor;
 
-                System.out.println("pool size: " + poolSize);
-                System.out.println("core pool size: " + corePoolSize);
+                    int poolSize = threadPoolExecutor.getPoolSize();
+                    int corePoolSize = threadPoolExecutor.getCorePoolSize();
+
+//                System.out.println("pool size: " + poolSize);
+                    System.out.println("==============");
+                    System.out.println("core pool size: " + corePoolSize);
+
+
             }
+
         };
 
         /**
-         * 왜 갯수가 다르지?
+         * TODO: 왜 갯수가 다르지?
          */
-        numberOfCpuThreadExecutor.execute(runnable);
         numberOfCpuThreadExecutor.submit(runnable);
+        numberOfCpuThreadExecutor.execute(runnable);
+
+
 
 
         // callable과 연관되어 있는 future object를 잡아놓을 list를 만든다.
@@ -51,7 +61,7 @@ public class MyCallable implements Callable<String> {
         // myCallable을 인스턴스화 해준다
         Callable<String> callable = new MyCallable();
 
-       /* for(int i =0; i<100; i++){
+        for(int i =0; i<100; i++){
             // thread pool가 실행한 callable task를 submit
             Future<String> future = executor.submit(callable);
 
@@ -69,6 +79,8 @@ public class MyCallable implements Callable<String> {
             }
         }
 
-        executor.shutdown();*/
+        executor.shutdown();
+        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) numberOfCpuThreadExecutor;
+        System.out.println("pool size: " + threadPoolExecutor.getPoolSize());
     }
 }

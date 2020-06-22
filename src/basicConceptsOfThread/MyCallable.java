@@ -46,9 +46,6 @@ public class MyCallable implements Callable<String> {
 
         };
 
-        /**
-         * TODO: 왜 갯수가 다르지?
-         */
         numberOfCpuThreadExecutor.submit(runnable);
         numberOfCpuThreadExecutor.execute(runnable);
 

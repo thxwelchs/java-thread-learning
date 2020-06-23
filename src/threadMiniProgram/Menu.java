@@ -25,12 +25,11 @@ public class Menu {
         this.menuMap = menuMap;
     }
 
-    //TODO: 더 나은 방법이 없을까
     public Menu() {
-        menuMap.put(1, MenuBoard.PASTA.name());
-        menuMap.put(2, MenuBoard.SALAD.name());
-        menuMap.put(3, MenuBoard.PIZZA.name());
-        menuMap.put(4, MenuBoard.CHILI_FRIES.name());
+        int i =1;
+        for(MenuBoard menuName: MenuBoard.values()){
+            menuMap.put(i++, menuName.name());
+        }
     }
 
     public void showingMenu(){

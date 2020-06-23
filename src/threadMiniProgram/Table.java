@@ -43,9 +43,13 @@ public class Table extends  Thread {
     }
 
     public void enterCustomer(Scanner scanner){
-        System.out.println("테이블 이름 : "+ this.getName());
-        System.out.println("손님들이 입장하였습니다. 손님들은 몇명이 들어왔습니까?");
+
+        System.out.println("테이블 이름 : "+ this.getName() + "의 손님들이 입장하였습니다. 손님들은 몇명이 들어왔습니까?");
         int numberOfCustomer = scanner.nextInt();
+        if(numberOfCustomer > 4){
+            System.out.println("단체 테이블이 없어요.");
+            this.enterCustomer(scanner);
+        }
         this.setNumberOfCustomer(numberOfCustomer);
     }
 
@@ -55,11 +59,16 @@ public class Table extends  Thread {
     }
 
     public void servingDishesCompleted(){
-        System.out.println("요리 나왔습니다~");
+        System.out.println(this.getName() + "테이블의 요리 나왔습니다~");
+        System.out.print("주문하신 요리 : ");
+        for(String nameOfMenu : orderedMenu){
+            System.out.print(nameOfMenu + " / ");
+        }
+        System.out.println();
         this.setDishesStatus(DishStatus.SERVERED.name());
     }
 
-    //TODO: 쓰레드 끝내기
+    
     public void finishedEating() throws InterruptedException {
         this.wait(2000);
         System.out.println("잘먹었습니다! 안녕히 계세요.");

@@ -25,6 +25,7 @@ public class Menu {
         this.menuMap = menuMap;
     }
 
+    //TODO: list로 바꾸기
     public Menu() {
         int i =1;
         for(MenuBoard menuName: MenuBoard.values()){

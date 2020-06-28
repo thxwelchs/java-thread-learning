@@ -8,19 +8,17 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 public class Restaurant{
 
-
-
     public static void main(String[] args) throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-        // ThreadPool이 1개
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+        // ThreadPool안에 쓰레드 2
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
 
         Runnable runnable = new Runnable() {
 
             @Override
             public void run() {
-                // TODO: 왜 ThreadPoolExecutor가 선언 되었을 때랑 아닐 때랑 출력 값이 다를까
-                ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) executorService;
+                // TODO: bufferedreader로 바꿔주기
+                Scanner scanner = new Scanner(System.in);
                 Table table = new Table();
                 table.enterCustomer(scanner);
 
@@ -49,7 +47,6 @@ public class Restaurant{
 
         executorService.shutdown();
 
-        //System.out.println("===============영업완료===");
     }
 
 }

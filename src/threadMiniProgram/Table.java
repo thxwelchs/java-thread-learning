@@ -68,7 +68,7 @@ public class Table extends  Thread {
         this.setDishesStatus(DishStatus.SERVERED.name());
     }
 
-    
+
     public void finishedEating() throws InterruptedException {
         this.wait(2000);
         System.out.println("잘먹었습니다! 안녕히 계세요.");

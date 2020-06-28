@@ -18,6 +18,7 @@ public class Restaurant{
             @Override
             public void run() {
                 // TODO: bufferedreader로 바꿔주기
+                ThreadPoolExcutor threadPoolExcutor = new ThreadPoolExcutor();
                 Scanner scanner = new Scanner(System.in);
                 Table table = new Table();
                 table.enterCustomer(scanner);
